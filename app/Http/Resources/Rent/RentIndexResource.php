@@ -17,6 +17,7 @@ class RentIndexResource extends JsonResource
     public function toArray($request): array
     {
         return [
+            'id' => $this->id,
             'car' => $this->car
         ];
     }
