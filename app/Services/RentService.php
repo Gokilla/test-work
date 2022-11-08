@@ -33,6 +33,6 @@ class RentService
 
     public function finish()
     {
-
+        #TODO Here need write code for end of rent and save history
     }
 }

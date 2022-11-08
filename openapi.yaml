@@ -1,0 +1,382 @@
+openapi: 3.0.0
+info:
+  title: Test
+  contact: {}
+  version: '1.0'
+servers:
+  - url: http://foundarium.test/api
+    variables: {}
+paths:
+  /cars:
+    get:
+      tags:
+        - Misc
+      summary: Get list Available Car
+      operationId: GetlistAvailableCar
+      parameters:
+        - name: Accept
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: application/json
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nginx/1.23.1
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: chunked
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Accept-Encoding
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: PHP/8.1.11
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, private
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 08 Nov 2022 09:13:56 GMT
+            X-RateLimit-Limit:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '60'
+            X-RateLimit-Remaining:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '59'
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '*'
+            Content-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: gzip
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Succes'
+                  - example:
+                      data:
+                        - car: TUn9GE0
+                        - car: wH8hexJ
+                        - car: Nv5bma1
+              example:
+                data:
+                  - car: TUn9GE0
+                  - car: wH8hexJ
+                  - car: Nv5bma1
+        '401':
+          description: Unauthorized
+          headers:
+            Server:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nginx/1.23.1
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: chunked
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: PHP/8.1.11
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, private
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 08 Nov 2022 09:14:21 GMT
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '*'
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Fail1'
+                  - example:
+                      message: Unauthenticated.
+              example:
+                message: Unauthenticated.
+      deprecated: false
+  /rent:
+    post:
+      tags:
+        - Misc
+      summary: Rent
+      operationId: Rent
+      parameters:
+        - name: Accept
+          in: header
+          description: ''
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: application/json
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/RentRequest'
+                - example:
+                    car_id: 3
+            example:
+              car_id: 3
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nginx/1.23.1
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: chunked
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            Vary:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Accept-Encoding
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: PHP/8.1.11
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, private
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 08 Nov 2022 09:17:22 GMT
+            X-RateLimit-Limit:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '60'
+            X-RateLimit-Remaining:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '59'
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '*'
+            Content-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: gzip
+          content:
+            text/html; charset=UTF-8:
+              schema:
+                type: integer
+                format: int32
+                example: 1
+              example: 1
+        '401':
+          description: Unauthorized
+          headers:
+            Server:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nginx/1.23.1
+            Transfer-Encoding:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: chunked
+            Connection:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: keep-alive
+            X-Powered-By:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: PHP/8.1.11
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, private
+            Date:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: Tue, 08 Nov 2022 09:18:03 GMT
+            Access-Control-Allow-Origin:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '*'
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Fail1'
+                  - example:
+                      message: Unauthenticated.
+              example:
+                message: Unauthenticated.
+      deprecated: false
+      security:
+        - bearer: []
+components:
+  schemas:
+    Succes:
+      title: Succes
+      required:
+        - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Datum'
+          description: ''
+      example:
+        data:
+          - car: TUn9GE0
+          - car: wH8hexJ
+          - car: Nv5bma1
+    Datum:
+      title: Datum
+      required:
+        - car
+      type: object
+      properties:
+        car:
+          type: string
+      example:
+        car: TUn9GE0
+    Fail1:
+      title: Fail1
+      required:
+        - message
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: Unauthenticated.
+    RentRequest:
+      title: RentRequest
+      required:
+        - car_id
+      type: object
+      properties:
+        car_id:
+          type: integer
+          format: int32
+      example:
+        car_id: 3
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Misc
+    description: ''
